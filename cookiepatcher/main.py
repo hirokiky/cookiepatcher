@@ -37,7 +37,7 @@ def cookiepatch():
 
     rendered = Template(patch_str).render(**context)
 
-    p = subprocess.Popen(['patch',  '-p1'], stdin=subprocess.PIPE, cwd='..')
+    p = subprocess.Popen(['patch',  '-Np1', '--no-backup-if-mismatch'], stdin=subprocess.PIPE, cwd='..')
     p.communicate(rendered.encode())
 
 
