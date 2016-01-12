@@ -18,6 +18,8 @@ def cookiepatch():
                         help='an integer for the accumulator')
     parser.add_argument('diff', type=str, nargs='+',
                         help='versions passed for git diff')
+    parser.add_argument('--show', action='store_true',
+                        help='Just print diff')
 
     args = parser.parse_args()
 
@@ -46,6 +48,10 @@ def cookiepatch():
     context['cookiecutter'] = prompt_for_config(context, no_input)
 
     rendered = Template(patch_str).render(**context)
+
+    if args.show:
+        print(rendered)
+        return
 
     p = subprocess.Popen(['patch',  '-Np1', '--no-backup-if-mismatch'], stdin=subprocess.PIPE, cwd='..')
     p.communicate(rendered.encode())
