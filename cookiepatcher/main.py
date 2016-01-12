@@ -22,7 +22,7 @@ def cookiepatch():
     repo_dir = clone(repo_url=template,
                      clone_to_dir=config_dict['cookiecutters_dir'],
                      checkout=None, no_input=no_input)
-    patch_bytes = subprocess.check_output(['git', 'diff', diff], cwd=repo_dir)
+    patch_bytes = subprocess.check_output(['git', 'diff', diff, '--', '{{cookiecutter.repo_name}}'], cwd=repo_dir)
     patch_str = patch_bytes.decode()
 
     context_file = os.path.join(repo_dir, 'cookiecutter.json')
