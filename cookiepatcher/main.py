@@ -99,7 +99,7 @@ def cookiepatch():
         'template': template
     }
     with open(CONF_PATH, 'w') as f:
-        json.dump(json_content, f)
+        json.dump(json_content, f, ensure_ascii=False, indent=2, sort_keys=True)
 
 
 if __name__ == '__main__':
