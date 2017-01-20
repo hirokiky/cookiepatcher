@@ -6,7 +6,6 @@ from distutils.version import LooseVersion
 
 from cookiecutter.config import get_user_config, USER_CONFIG_PATH
 from cookiecutter.generate import generate_context
-from cookiecutter.main import expand_abbreviations
 from cookiecutter.prompt import prompt_for_config
 from cookiecutter.vcs import clone
 
