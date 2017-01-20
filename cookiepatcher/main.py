@@ -2,12 +2,18 @@ import argparse
 import json
 import os
 import subprocess
+from distutils.version import LooseVersion
 
 from cookiecutter.config import get_user_config, USER_CONFIG_PATH
 from cookiecutter.generate import generate_context
 from cookiecutter.main import expand_abbreviations
 from cookiecutter.prompt import prompt_for_config
 from cookiecutter.vcs import clone
+
+if LooseVersion("1.5") <= LooseVersion(cookiecutter.__version__):
+    from cookiecutter.repository import expand_abbreviations
+else:
+    from cookiecutter.main import expand_abbreviations
 
 from jinja2 import Template
 
