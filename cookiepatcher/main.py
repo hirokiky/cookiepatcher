@@ -8,7 +8,7 @@ from cookiecutter.config import get_user_config, USER_CONFIG_PATH
 from cookiecutter.generate import generate_context
 from cookiecutter.prompt import prompt_for_config
 from cookiecutter.vcs import clone
-
+import cookiecutter
 if LooseVersion("1.5") <= LooseVersion(cookiecutter.__version__):
     from cookiecutter.repository import expand_abbreviations
 else:
