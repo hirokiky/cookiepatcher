@@ -76,6 +76,8 @@ def cookiepatch():
         context['cookiecutter'] = prompt_for_config(context, no_input)
 
     rendered = Template(patch_str).render(**context)
+    if(rendered):
+            rendered += os.linesep
 
     if args.show:
         print(rendered)
