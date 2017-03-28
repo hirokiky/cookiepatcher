@@ -77,7 +77,7 @@ def cookiepatch():
 
     rendered = Template(patch_str).render(**context)
     if(rendered):
-            rendered += os.linesep
+        rendered += os.linesep
 
     if args.show:
         print(rendered)
