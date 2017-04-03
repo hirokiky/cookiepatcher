@@ -83,7 +83,7 @@ def cookiepatch():
         print(rendered)
         return
 
-    p = subprocess.Popen(['patch',  '-Np1', '--no-backup-if-mismatch'], stdin=subprocess.PIPE,
+    p = subprocess.Popen(['git',  'apply', '-v', '-p1', '--reject'], stdin=subprocess.PIPE,
                          cwd='..')
     p.communicate(rendered.encode())
 
