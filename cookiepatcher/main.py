@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import sys
 import subprocess
 
 from cookiecutter.config import get_user_config, USER_CONFIG_PATH
@@ -78,6 +79,9 @@ def cookiepatch():
     rendered = Template(patch_str).render(**context)
     if(rendered):
         rendered += os.linesep
+    else:
+        print("current revision is already up-to-date.")
+        sys.exit(0)
 
     if args.show:
         print(rendered)
